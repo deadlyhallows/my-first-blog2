@@ -1,4 +1,3 @@
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.utils import timezone
 from .models import Post
@@ -62,13 +61,14 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
-@login_required
-def home(request):
 
+def home(request):
     return render(request, 'post_list.html')
 
 def account_activation_sent(request):
     return render(request, 'account_activation_sent.html')
+
+
 
 def signup(request):
     if request.method == 'POST':
@@ -77,7 +77,6 @@ def signup(request):
             user = form.save(commit=False)
             user.is_active = False
             user.save()
-
             current_site = get_current_site(request)
             subject = 'Activate Your MySite Account'
             message = render_to_string('account_activation_email.html', {
@@ -92,6 +91,8 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
 
+
+
 def activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
@@ -104,11 +105,9 @@ def activate(request, uidb64, token):
         user.profile.email_confirmed = True
         user.save()
         login(request, user)
-        return redirect('home')
+        return render(request,'blog/post_list.html')
     else:
-        return render(request, 'account_activation_invalid.html')
-
-
+        return render(request, 'blog/post_list.html')
 
 
 
