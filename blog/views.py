@@ -19,6 +19,7 @@ from django.utils.encoding import force_text
 from django.utils.http import urlsafe_base64_decode
 from django.core.mail import EmailMessage
 from blog.models import Profile
+import smtplib
 
 
 
@@ -91,7 +92,8 @@ def signup(request):
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                 'token': account_activation_token.make_token(user),
             })
-            user.email_user(subject, message)
+            #user.email_user(subject, message)
+            send_verification_mail(user.email, message)
             return render(request, 'blog/account_activation_sent.html')
     else:
         form = SignUpForm()
@@ -148,3 +150,15 @@ def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.delete()
     return redirect('blog/post_detail', pk=comment.post.pk)
+
+email_address = 'deadlyhallows19@gmail.com'
+email_password = 'entrepreneur'
+
+
+def send_verification_mail(email, msg):
+    print("send verificaion mail")
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login(email_address, email_password)
+    server.sendmail(email_address, email, msg)
+    server.quit()
