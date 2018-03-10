@@ -10,12 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 from .email_info import *
+
+
 EMAIL_USE_TLS = EMAIL_USE_TLS
 EMAIL_HOST = EMAIL_HOST
 EMAIL_HOST_USER = EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
 EMAIL_PORT = EMAIL_PORT
-
 
 
 import os
@@ -31,6 +32,7 @@ SECRET_KEY = 'p*2jtf_ui#7_msi4^g=i1otep*sujxgmry2kz^y&wqq!#t6a9m'
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+
 
 # Application definition
 

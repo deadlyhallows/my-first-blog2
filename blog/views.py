@@ -1,5 +1,8 @@
+from django.conf import settings
+from django.contrib import messages
+from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render,render_to_response,HttpResponseRedirect
 from django.utils import timezone
 from .models import Post,Comment
 from django.shortcuts import get_object_or_404
@@ -84,6 +87,7 @@ def signup(request):
             user = form.save(commit=False)
             user.is_active = False
             user.save()
+            #send_mail(subject,message,from_email,to_list,fail_silently=True)
             current_site = get_current_site(request)
             subject = 'Activate Your MySite Account'
             message = render_to_string('blog/account_activation_email.html', {
@@ -93,7 +97,9 @@ def signup(request):
                 'token': account_activation_token.make_token(user),
             })
             #user.email_user(subject, message)
-            send_verification_mail(user.email, message)
+            from_email=settings.EMAIL_HOST_USER
+            to_list = [user.email,settings.EMAIL_HOST_USER]
+            send_mail(subject, message, from_email, to_list, fail_silently=True)
             return render(request, 'blog/account_activation_sent.html')
     else:
         form = SignUpForm()
@@ -151,14 +157,3 @@ def comment_remove(request, pk):
     comment.delete()
     return redirect('blog/post_detail', pk=comment.post.pk)
 
-email_address = 'deadlyhallows19@gmail.com'
-email_password = 'entrepreneur'
-
-
-def send_verification_mail(email, msg):
-    print("send verificaion mail")
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.starttls()
-    server.login(email_address, email_password)
-    server.sendmail(email_address, email, msg)
-    server.quit()
