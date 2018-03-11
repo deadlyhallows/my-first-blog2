@@ -99,7 +99,7 @@ def signup(request):
             #user.email_user(subject, message)
             from_email=settings.EMAIL_HOST_USER
             to_list = [user.email,settings.EMAIL_HOST_USER]
-            send_mail(subject, message, from_email, to_list, fail_silently=True)
+            send_mail(subject, message, from_email, to_list, fail_silently=False)
             return render(request, 'blog/account_activation_sent.html')
     else:
         form = SignUpForm()
