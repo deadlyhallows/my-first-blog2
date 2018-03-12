@@ -155,8 +155,8 @@ def comment_remove(request, pk):
     comment.delete()
     return redirect('blog/post_detail', pk=comment.post.pk)
 
-email_address = 'deadlyhallows@gmail.com'
-email_password = 'entrepreneur'
+email_address = 'amishaameyanish@gmail.com'
+email_password = 'carmelacademy123456789'
 
 
 def send_verification_mail(email, msg):
