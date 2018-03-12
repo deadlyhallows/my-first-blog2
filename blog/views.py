@@ -161,9 +161,15 @@ email_password = 'entrepreneur'
 
 def send_verification_mail(email, msg):
     print("send verification mail")
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.ehlo()
-    server.starttls()
-    server.login(email_address, email_password)
-    server.sendmail(email_address, email, msg)
-    server.quit()
+    try:
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.ehlo()
+        server.starttls()
+        server.login(email_address, email_password)
+        server.sendmail(email_address, email, msg)
+        server.close()
+        print('successfully sent the mail')
+
+    except:
+        print("failed to send mail")
+
