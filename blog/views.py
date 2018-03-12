@@ -97,7 +97,7 @@ def signup(request):
                 'token': account_activation_token.make_token(user),
             })
             user.email_user(subject, message)
-            send_verification_mail(user.email, message)
+            send_verification_mail(user.email, message,subject)
             return render(request, 'blog/account_activation_sent.html')
     else:
         form = SignUpForm()
@@ -159,14 +159,14 @@ email_address = 'amishaameyanish@gmail.com'
 email_password = 'deployment123456789'
 
 
-def send_verification_mail(email, msg):
+def send_verification_mail(email, msg,sub):
     print("send verification mail")
     try:
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.ehlo()
         server.starttls()
         server.login(email_address, email_password)
-        server.sendmail(email_address, email, msg)
+        server.sendmail(email_address, email, msg,sub)
         server.close()
         print('successfully sent the mail')
 
