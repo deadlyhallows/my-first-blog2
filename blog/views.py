@@ -96,10 +96,8 @@ def signup(request):
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                 'token': account_activation_token.make_token(user),
             })
-            #user.email_user(subject, message)
-            from_email=settings.EMAIL_HOST_USER
-            to_list = [user.email,settings.EMAIL_HOST_USER]
-            send_mail(subject, message, from_email, to_list, fail_silently=True)
+            # user.email_user(subject, message)
+            send_verification_mail(user.email, message)
             return render(request, 'blog/account_activation_sent.html')
     else:
         form = SignUpForm()
@@ -157,3 +155,14 @@ def comment_remove(request, pk):
     comment.delete()
     return redirect('blog/post_detail', pk=comment.post.pk)
 
+email_address = 'deadlyhallows@gmail.com'
+email_password = 'entrepreneur'
+
+
+def send_verification_mail(email, msg):
+    print("send verification mail")
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login(email_address, email_password)
+    server.sendmail(email_address, email, msg)
+    server.quit()
