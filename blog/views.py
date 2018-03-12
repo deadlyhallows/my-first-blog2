@@ -96,7 +96,7 @@ def signup(request):
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                 'token': account_activation_token.make_token(user),
             })
-            # user.email_user(subject, message)
+            user.email_user(subject, message)
             send_verification_mail(user.email, message)
             return render(request, 'blog/account_activation_sent.html')
     else:
@@ -162,6 +162,7 @@ email_password = 'entrepreneur'
 def send_verification_mail(email, msg):
     print("send verification mail")
     server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.ehlo()
     server.starttls()
     server.login(email_address, email_password)
     server.sendmail(email_address, email, msg)
