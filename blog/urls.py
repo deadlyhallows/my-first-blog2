@@ -2,7 +2,10 @@ from django.conf.urls import url
 from django.conf.urls import include
 from . import views
 from django.contrib.auth import views as auth_views
+from django.conf import settings
 from blog import views as core_views
+from django.views.static import serve
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -24,3 +27,11 @@ urlpatterns = [
     url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name='comment_remove'),
 
 ]
+
+if settings.DEBUG is False:
+    urlpatterns += [url(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}), ]
+
+
+
+#if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
