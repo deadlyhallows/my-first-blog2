@@ -1,15 +1,9 @@
-from django.conf import settings
-from django.contrib import messages
-from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render,render_to_response,HttpResponseRedirect
 from django.utils import timezone
 from .models import Post,Comment
 from django.shortcuts import get_object_or_404
 from .forms import PostForm,CommentForm
-from django.shortcuts import redirect
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login
 from django.contrib.sites.shortcuts import get_current_site
 from django.shortcuts import render, redirect
 from django.utils.encoding import force_bytes
@@ -20,8 +14,6 @@ from blog.tokens import account_activation_token
 from django.contrib.auth.models import User
 from django.utils.encoding import force_text
 from django.utils.http import urlsafe_base64_decode
-from django.core.mail import EmailMessage
-from blog.models import Profile
 import smtplib
 
 
