@@ -1,11 +1,43 @@
 {% extends 'blog/base.html' %}
+{% load staticfiles %}
+<img src="static/images/">
 
 {% block content %}
-  <h2>Log in </h2>
+    {% block style %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+        <style>
+
+            html,body{
+                background-image: url({% static 'images/pqr.png'%});
+                width:100%;
+                height: 100%;
+                -moz-background-size: cover;
+                -webkit-background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin:0;
+                padding:0;
+
+
+
+            }
+
+           form, button{color:black;}
+
+
+
+
+
+        </style>
+    {% endblock style %}
+
+
   {% if form.errors %}
     <p style="color: red">Your username and password didn't match. Please try again.</p>
   {% endif %}
   <form method="post">
+      <h2>Log in </h2>
     {% csrf_token %}
     <input type="hidden" name="next" value="{{ next }}" />
     {% for field in form %}

@@ -1,30 +1,41 @@
+@import url(//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext);
+form {
+    width: 300px;
+    margin: 0 auto;
+}
+
+
+.logs{color: #110302;
+      font-family: 'Lobster', cursive;
+      font-size:24px;}
+
 h1 a {
     color: #FCA205;
 }
 
-body {
-    padding-left: 15px;
-}
 
-h1 a {
+
+.page-header h1 a {
     color: #FCA205;
     font-family: 'Lobster';
 }
 
 .page-header {
-    background-color: #ff9400;
-    margin-top: 0;
+    color: #110302;
+    border-bottom:0px solid #eeeeee;
     padding: 20px 20px 20px 40px;
+    margin: 0px 0px 0px;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-    color: #ffffff;
+    color: #110302;
     font-size: 36pt;
     text-decoration: none;
 }
 
 .content {
-    margin-left: 40px;
+
+    margin-right:0px;
 }
 
 h1, h2, h3, h4 {
@@ -32,8 +43,9 @@ h1, h2, h3, h4 {
 }
 
 .date {
-    color: #828282;
+    color: #fcfcfc;
 }
+
 
 .save {
     float: right;
@@ -55,9 +67,14 @@ h1, h2, h3, h4 {
 }
 
 .post h1 a, .post h1 a:visited {
-    color: #000000;
+    color: #dcdace;
 }
 
 .comment {
     margin: 20px 0px 20px 20px;
+}
+
+.container{
+    margin-left:0px;
+    margin-right:0px;
 }
