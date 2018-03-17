@@ -6,12 +6,7 @@
     font-family: 'Lobster';
 }
 
-.page-header {
-    color: #110302;
-    border-bottom:0px solid #eeeeee;
-    padding: 20px 20px 20px 40px;
-    margin: 0px 0px 0px;
-}
+
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
     color: #110302;
