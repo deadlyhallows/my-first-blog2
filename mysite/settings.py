@@ -27,7 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'p*2jtf_ui#7_msi4^g=i1otep*sujxgmry2kz^y&wqq!#t6a9m'
 DEBUG = False
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+
 if socket.gethostname() == "server_name":
     DEBUG = False
     ALLOWED_HOSTS = [".pythonanywhere.com",]
