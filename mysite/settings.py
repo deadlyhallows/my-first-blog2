@@ -17,6 +17,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 
 import os
+import socket
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
@@ -24,12 +25,20 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'p*2jtf_ui#7_msi4^g=i1otep*sujxgmry2kz^y&wqq!#t6a9m'
-
+DEBUG = False
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+if socket.gethostname() == "server_name":
+    DEBUG = False
+    ALLOWED_HOSTS = [".pythonanywhere.com",]
+
+else:
+    DEBUG = True
+    ALLOWED_HOSTS = ["localhost", "127.0.0.1",]
 
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+
+
 
 
 # Application definition
