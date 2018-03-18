@@ -1,7 +1,15 @@
 @import url(//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext);
+.page-header {
+
+                 color: #110302;
+                 border-bottom:0px solid #eeeeee;
+                 padding: 20px 20px 20px 40px;
+                 margin: 0px 0px 0px;}
 p,a{
     color:black;
-    font-weight: bold;}
+    font-weight: bold;
+    font-family: 'Lobster', cursive;
+    }
 
 
 .logs{color: #110302;
@@ -61,7 +69,7 @@ h1, h2, h3, h4 {
 }
 
 .post h1 a, .post h1 a:visited {
-    color: #dcdace;
+    color: #110302;
 }
 
 .comment {
