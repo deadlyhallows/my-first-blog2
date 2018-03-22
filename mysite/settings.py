@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'blog',
 ]
 
@@ -137,7 +138,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'blog/login.html'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 

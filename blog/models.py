@@ -38,6 +38,7 @@ def update_user_profile(sender, instance, created, **kwargs):
     if created:
          Profile.objects.create(user=instance)
     instance.profile.save()
+
 class Comment(models.Model):
     post = models.ForeignKey('blog.Post', related_name='comments')
     author = models.CharField(max_length=200)
@@ -51,3 +52,5 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
+
+

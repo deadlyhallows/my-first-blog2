@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^post/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),
     url(r'^post/new/$', views.post_new, name='post_new'),
     url(r'^post/(?P<pk>\d+)/edit/$', views.post_edit, name='post_edit'),
-    url(r'^login/$',auth_views.LoginView.as_view(template_name='blog/login.html'), name='login'),
+    url(r'^login/$', auth_views.LoginView.as_view(template_name='blog/login.html'), name='login'),
     url(r'^signup/$', views.signup, name='signup'),
     url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
     url(r'^account_activation_sent/$', core_views.account_activation_sent, name='account_activation_sent'),
