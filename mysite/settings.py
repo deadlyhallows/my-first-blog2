@@ -29,7 +29,7 @@ DEBUG = False
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-ALLOWED_HOSTS = [".pythonanywhere.com", "127.0.0.1",]
+ALLOWED_HOSTS = [ "127.0.0.1", ".pythonanywhere.com", ]
 
 
 
