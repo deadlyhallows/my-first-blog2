@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 {% load staticfiles %}
 
-<a class="launch-modal logs" data-toggle="modal" href="{% url 'blog:login' %}" data-target="#myModal">  / login</a> <a  class="logs"  href="{% url 'blog:signup' %}">signup</a>
+
 {% block content %}
     {% block style %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
@@ -25,25 +25,19 @@
         </style>
     {% endblock style %}
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+<form method="post">
+    <h2>Login</h2>
+    {% csrf_token %}
+    {{ form.as_p }}
+
+      <button type="submit">Login</button>
+  </form>
 
 
-              <div class="modal-dialog">
-                <div class="modal-content">
-                   <form method="post" role="form" action=" " class="login-form">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">
-                            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-                        </button>
-                    <div class="modal-body">
-                       {% csrf_token %}
-                       {% include 'blog/form.html' %}
-                        {{form.as_p}}
-                    </div>
-                    </div>
 
-                  </form>
-              </div>
-</div>
-</div>
-    {% endblock %}
+
+
+
+
+
+{% endblock %}

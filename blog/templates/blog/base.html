@@ -41,7 +41,7 @@
                     <a class="logs" href="{% url 'blog:post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus "></span></a>
                     <a class="logs" href="{% url 'blog:post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit "></span></a>
                 {% else %}
-                    <a class="launch-modal logs" data-toggle="modal" href="{% url 'blog:login' %}" data-target="#myModal">  / login</a> <a  class="logs"  href="{% url 'blog:signup' %}">signup</a>
+                    <a class="logs"  href="{% url 'blog:login' %}" > login </a> / <a  class="logs"  href="{% url 'blog:signup' %}">signup </a>
                 {% endif %}
 
                 <h1><a href="/">BloggShared</a></h1>
