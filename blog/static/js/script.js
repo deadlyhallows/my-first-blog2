@@ -4,7 +4,7 @@ Query(document).ready(function() {
 		 var modalid = $(this).data("target");
 		 var url = $(this).attr("href");
 		 $(modalid).modal("show");
-		$( '#' + $(this).data('modal-id') ).modal();
+		$( '#' + $(this).data('modalid') ).modal();
 	});
 
 });

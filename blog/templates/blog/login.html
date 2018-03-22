@@ -1,6 +1,6 @@
-{% extends 'blog/login.html' %}
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
 
-<img src="static/images/">
 <a class="launch-modal logs" data-toggle="modal" href="{% url 'blog:login' %}" data-target="#myModal">  / login</a> <a  class="logs"  href="{% url 'blog:signup' %}">signup</a>
 {% block content %}
     {% block style %}
@@ -44,5 +44,6 @@
 
                   </form>
               </div>
+</div>
 </div>
     {% endblock %}

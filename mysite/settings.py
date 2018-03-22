@@ -28,13 +28,7 @@ SECRET_KEY = 'p*2jtf_ui#7_msi4^g=i1otep*sujxgmry2kz^y&wqq!#t6a9m'
 DEBUG = False
 # SECURITY WARNING: don't run with debug turned on in production!
 
-if socket.gethostname() == "server_name":
-    DEBUG = False
-    ALLOWED_HOSTS = [".pythonanywhere.com",]
 
-else:
-    DEBUG = True
-    ALLOWED_HOSTS = ["localhost", "127.0.0.1",]
 
 
 
@@ -50,7 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'crispy_forms',
     'blog',
 ]
 
