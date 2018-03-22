@@ -15,6 +15,15 @@ from django.contrib.auth.models import User
 from django.utils.encoding import force_text
 from django.utils.http import urlsafe_base64_decode
 import smtplib
+from django.shortcuts import render
+from django.template import RequestContext
+from django.shortcuts import render_to_response
+from blog.forms import PersonForm
+
+
+
+
+
 
 
 
@@ -164,4 +173,15 @@ def send_verification_mail(email, msg,sub):
 
     except:
         print("failed to send mail")
+
+
+def add_user(request):
+    form = PersonForm()
+    return render(request, 'blog/login.html', {'form': form})
+
+
+
+def registration(request):
+        return render_to_response('blog/login.html', {'form': PersonForm()})
+
 

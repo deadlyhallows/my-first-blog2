@@ -16,9 +16,32 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2', )
+    def __init__(self, *args, **kwargs):
+
+        super(SignUpForm, self).__init__(*args, **kwargs)
+        for field in self.fields:
+            help_text = self.fields[field].help_text
+            self.fields[field].help_text = None
+            if help_text != '':
+                self.fields[field].widget.attrs.update(
+                    {'class': 'has-popover', 'data-content': help_text, 'data-placement': 'right',
+                     'data-container': 'body'})
+
 
 class CommentForm(forms.ModelForm):
 
     class Meta:
         model = Comment
         fields = ('author', 'text',)
+
+
+class PersonForm(forms.ModelForm):
+
+    class Meta:
+        model = User
+        fields = ('username', 'password',)
+
+
+
+
+
