@@ -1,4 +1,3 @@
-# Divya-Kripa
 Synopsis
 ========
 This project will help you in creating blog like Quora with less features. Here login user can write his article and can save his/her posts as drafts and publish them when ready. Every reader of that article can read and comment on article. Comment will only be shown when writer of that article will aprove it.
