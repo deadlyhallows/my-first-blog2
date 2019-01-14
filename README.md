@@ -16,4 +16,4 @@ Built With
 * Django;
 * HTML;
 * Javascript;
-* css.
+* css;
